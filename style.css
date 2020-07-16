@@ -1,0 +1,62 @@
+.container {
+  margin: auto;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: green;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7em;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: #ca3;
+  color: white;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 5px;
+}
+
+.date {
+  text-align: center;
+  margin-top: 2px;
+}
+
+.bttn {
+  display: flex;
+  justify-content: space-between;
+  background-color: #262;
+  text-align: center;
+  font-size: 19px;
+}
+
+#monthyear {
+  padding-top: 10px;
+  color: white;
+}
+
+button {
+  border: none;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
