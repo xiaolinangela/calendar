@@ -59,8 +59,6 @@ function showDate(today, currentYear, d) {
   for (let i = 2; i < numOfDates[currentMonth + 1] + 1; i++) {
     var child = createDate(i);
     child.id = `${i}`;
-
-    child.className += " " + "date";
     if (
       d.getDate() == i &&
       currentMonth == d.getMonth() &&
@@ -103,8 +101,8 @@ next.addEventListener("click", nextUpdate);
 previous.addEventListener("click", previousUpdate);
 
 document.addEventListener("click", function (e) {
-  if ((e.target.className = "date")) {
-    var show_d = new Date();
-    alert(show_d);
+  if (e.target.className == "date") {
+    var alertDate = new Date();
+    alert(alertDate);
   }
 });
