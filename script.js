@@ -15,17 +15,33 @@ var months = {
   11: "November",
   12: "December",
 };
+var numOfDates = {
+  1: 31,
+  2: 28,
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 31,
+  8: 31,
+  9: 30,
+  10: 31,
+  11: 30,
+  12: 31,
+};
 
 var d = new Date();
 var currentMonth = d.getMonth();
 var currentYear = d.getFullYear();
 var today = d.getDay();
+var todayDate = d.getDate();
 var dates = document.querySelector(".dates");
 monthYear.innerHTML = months[currentMonth + 1] + " " + currentYear;
 
-showDate(today, currentYear);
+showDate(today, currentYear, todayDate);
+
 function createDate(date) {
-  let div = document.createElement("div");
+  let div = document.createElement("button");
   div.className = "date";
   div.textContent = date;
   return div;
@@ -34,28 +50,20 @@ function leapYear(year) {
   return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 }
 
-function showDate(today, currentYear) {
-  var numOfDates = {
-    1: 31,
-    2: 28,
-    3: 31,
-    4: 30,
-    5: 31,
-    6: 30,
-    7: 31,
-    8: 31,
-    9: 30,
-    10: 31,
-    11: 30,
-    12: 31,
-  };
-
+function showDate(today, currentYear, todayDate) {
   if (leapYear(currentYear)) {
     numOfDates[2] = 29;
   }
 
   for (let i = 2; i < numOfDates[currentMonth + 1] + 1; i++) {
-    dates.appendChild(createDate(i));
+    var child = createDate(i);
+    child.id = `${i}`;
+    child.className += " " + "date";
+    if (todayDate && todayDate == i) {
+      child.style.backgroundColor = "#ca3";
+      child.style.color = "white";
+    }
+    dates.appendChild(child);
   }
   document.querySelector("#myDIV").style.gridColumn = today + 1;
 }

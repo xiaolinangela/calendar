@@ -43,14 +43,15 @@ body {
 }
 
 #monthyear {
-  padding-top: 10px;
+  padding: 10px;
   color: white;
 }
 
 button {
   border: none;
-  font-size: 36px;
+  font-size: 15px;
   cursor: pointer;
+  background-color: white;
 }
 
 button:focus {
@@ -59,4 +60,11 @@ button:focus {
 
 input:focus {
   outline: none;
+}
+
+.dates button:hover,
+.dates button:focus {
+  outline: none;
+  background-color: #262;
+  color: white;
 }
