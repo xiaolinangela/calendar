@@ -59,7 +59,11 @@ function showDate(today, currentYear, d) {
     var child = createDate(i);
     child.id = `${i}`;
     child.className += " " + "date";
-    if (d.getDate() == i && currentMonth == d.getMonth()) {
+    if (
+      d.getDate() == i &&
+      currentMonth == d.getMonth() &&
+      currentYear == d.getFullYear()
+    ) {
       child.style.backgroundColor = "#ca3";
       child.style.color = "white";
     }
