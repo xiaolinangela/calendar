@@ -1,6 +1,7 @@
 var monthYear = document.querySelector("#monthyear");
 var next = document.querySelector("#next");
 var previous = document.querySelector("#previous");
+
 var months = {
   1: "January",
   2: "February",
@@ -58,6 +59,7 @@ function showDate(today, currentYear, d) {
   for (let i = 2; i < numOfDates[currentMonth + 1] + 1; i++) {
     var child = createDate(i);
     child.id = `${i}`;
+
     child.className += " " + "date";
     if (
       d.getDate() == i &&
@@ -69,6 +71,7 @@ function showDate(today, currentYear, d) {
     }
     dates.appendChild(child);
   }
+
   document.querySelector("#myDIV").style.gridColumn = today + 1;
 }
 
@@ -98,3 +101,10 @@ function previousUpdate() {
 
 next.addEventListener("click", nextUpdate);
 previous.addEventListener("click", previousUpdate);
+
+document.addEventListener("click", function (e) {
+  if ((e.target.className = "date")) {
+    var show_d = new Date();
+    alert(show_d);
+  }
+});
