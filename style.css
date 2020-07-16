@@ -62,9 +62,14 @@ input:focus {
   outline: none;
 }
 
-.dates button:hover,
-.dates button:focus {
+.dates button:hover {
   outline: none;
   background-color: #262;
+  color: white;
+}
+
+.dates button:focus {
+  outline: none;
+  background-color: #ca3;
   color: white;
 }
