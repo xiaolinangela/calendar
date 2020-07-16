@@ -103,6 +103,8 @@ previous.addEventListener("click", previousUpdate);
 document.addEventListener("click", function (e) {
   if (e.target.className == "date") {
     var alertDate = new Date();
-    alert(alertDate);
+    alert(
+      months[currentMonth + 1] + " " + e.target.textContent + ", " + currentYear
+    );
   }
 });
