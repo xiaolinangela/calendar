@@ -38,7 +38,7 @@ var todayDate = d.getDate();
 var dates = document.querySelector(".dates");
 monthYear.innerHTML = months[currentMonth + 1] + " " + currentYear;
 
-showDate(today, currentYear, todayDate);
+showDate(today, currentYear, d);
 
 function createDate(date) {
   let div = document.createElement("button");
@@ -50,7 +50,7 @@ function leapYear(year) {
   return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 }
 
-function showDate(today, currentYear, todayDate) {
+function showDate(today, currentYear, d) {
   if (leapYear(currentYear)) {
     numOfDates[2] = 29;
   }
@@ -59,7 +59,7 @@ function showDate(today, currentYear, todayDate) {
     var child = createDate(i);
     child.id = `${i}`;
     child.className += " " + "date";
-    if (todayDate && todayDate == i) {
+    if (d.getDate() == i && currentMonth == d.getMonth()) {
       child.style.backgroundColor = "#ca3";
       child.style.color = "white";
     }
@@ -69,12 +69,13 @@ function showDate(today, currentYear, todayDate) {
 }
 
 function newDates(currentYear, currentMonth) {
+  var newD = new Date();
   var new_date = new Date(currentYear, currentMonth, 1);
   dates.innerHTML = "";
   var firstChild = createDate(1);
   firstChild.id = "myDIV";
   dates.appendChild(firstChild);
-  showDate(new_date.getDay(), currentYear);
+  showDate(new_date.getDay(), currentYear, newD);
 }
 
 function nextUpdate() {
